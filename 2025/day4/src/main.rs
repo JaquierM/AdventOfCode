@@ -47,7 +47,7 @@ fn parse(input: &str) -> Vec<Vec<bool>> {
     shelf
 }
 
-fn get_movable(shelf: &Vec<Vec<bool>>) -> Vec<Position> {
+fn get_movable(shelf: &[Vec<bool>]) -> Vec<Position> {
     let mut movable: Vec<Position> = Vec::new();
 
     let row_len = shelf.len();
@@ -64,7 +64,7 @@ fn get_movable(shelf: &Vec<Vec<bool>>) -> Vec<Position> {
     movable
 }
 
-fn remove_moved(shelf: &Vec<Vec<bool>>, movable: &Vec<Position>) -> Vec<Vec<bool>> {
+fn remove_moved(shelf: &[Vec<bool>], movable: &[Position]) -> Vec<Vec<bool>> {
     let mut new_shelf: Vec<Vec<bool>> = Vec::new();
 
     for (row_index, column) in shelf.iter().enumerate() {
@@ -89,7 +89,7 @@ fn remove_moved(shelf: &Vec<Vec<bool>>, movable: &Vec<Position>) -> Vec<Vec<bool
     new_shelf
 }
 
-fn count_adjacent(shelf: &Vec<Vec<bool>>, pos: Position) -> i32 {
+fn count_adjacent(shelf: &[Vec<bool>], pos: Position) -> i32 {
     let is_roll = shelf
         .get(pos.row)
         .map(|current_row| current_row.get(pos.column).copied().unwrap_or(false))
