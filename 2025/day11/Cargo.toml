@@ -1,0 +1,11 @@
+[package]
+name = "day11"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+description.workspace = true
+
+[dependencies]
+rayon = "1.11.0"
+itertools = "0.14.0"
+petgraph = { version = "0.8.3", features = ["rayon"] }
